@@ -1,4 +1,4 @@
-package com.allocolo.geoff_000.projetcolo;
+package com.allocolo.geoff_000.applicolo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.allocolo.geoff_000.projetcolo;
+package com.allocolo.geoff_000.applicolo;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
