@@ -73,7 +73,8 @@
                 android:id="@+id/etFlux"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:hint="Message" />
+                android:hint="Message"
+                android:gravity="left|center_horizontal" />
         </RelativeLayout>
 
         <RelativeLayout
