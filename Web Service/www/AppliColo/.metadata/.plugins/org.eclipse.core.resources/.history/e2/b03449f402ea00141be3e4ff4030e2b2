@@ -1,0 +1,11 @@
+<?php
+require_once('../lib/nusoap.php');
+$soap = new soapclient('http://localhost/applicolo/wsapplicolo/server.php?wsdl');
+$client=$soap->getProxy();
+/* $result=$soap->call("getHello",array("prenom"=>"jean","nom"=>"marc"));
+echo $result; */
+// executer la methode getHello
+echo $client->getHello('Marc','Assin');
+//echo $proxy->getHelloReverse('Marc','Assin');
+
+?>

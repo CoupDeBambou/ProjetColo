@@ -1,0 +1,18 @@
+<?php
+class Colo {
+	function getHello($prenom, $nom) {
+		return 'Hello ' . $prenom . ' ' . $nom;
+	}
+	function getHelloReverse($prenom, $nom) {
+		return 'Hello ' . $nom . ' ' . $prenom;
+	}
+}
+
+$server = new SoapServer("http://localhost/applicolo/wsapplicolo/server.php?wsdl");
+$server->setClass("Colo");
+$server->handle();
+
+$HTTP_ROW_POST_DATA = isset ( $HTTP_ROW_POST_DATA ) ? $HTTP_ROW_POST_DATA : '';
+$server->service ( $HTTP_ROW_POST_DATA );
+
+?>

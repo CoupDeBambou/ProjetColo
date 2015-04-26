@@ -1,0 +1,4 @@
+<?php
+$soap = new SoapClient('http://localhost/applicolo/wsapplicolo/server.php?wsdl');
+echo $client->getHello('Marc','Assin');
+?>

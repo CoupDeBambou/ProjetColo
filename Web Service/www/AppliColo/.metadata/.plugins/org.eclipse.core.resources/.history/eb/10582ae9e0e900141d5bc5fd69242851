@@ -1,0 +1,27 @@
+<?php
+require '../lib/nusoap.php';
+$server = new nusoap_server ();
+$server->configureWSDL("AppliColo"."urn:AppliColo");
+$server->register(
+		"getHello",
+		array("prenom"=>"xsd:string","nom"=>"xsd:string"),
+		array("return"=>"xsd:string")
+);
+
+$server->register(
+		"getHelloReverse",
+		array("prenom"=>"xsd:string","nom"=>"xsd:string"),
+		array("return"=>"xsd:string")
+);
+// lancer le serveur
+
+$HTTP_ROW_POST_DATA = isset($HTTP_ROW_POST_DATA) ? $HTTP_ROW_POST_DATA :'';
+$server->service($HTTP_ROW_POST_DATA);
+
+function getHello($prenom, $nom) {
+	return 'Hello ' . $prenom . ' ' . $nom;
+}
+function getHelloReverse($prenom, $nom) {
+	return 'Hello ' . $nom . ' ' . $prenom;
+}
+?>
