@@ -16,7 +16,25 @@
 		function getHelloReverse($prenom, $nom) {
 			return 'Hello ' . $nom . ' ' . $prenom;
 		}
-	
+		function getConnect(){
+			$hostname='localhost';
+			$login='root';
+			$passwd='';
+			$base='projetcolo';
+			// connexion au serveur
+			$dbconn = mysqli_connect($hostname,$login,$passwd, $base) or die("Error " . mysqli_error($link)); 
+
+			// verif de connexion
+			if (!$dbconn) {
+				$bReturn = false;
+			} else {
+				$bReturn = true;
+			}
+			
+			// fermeture de la connexion 
+			mysqli_close($dbconn);
+			return $bReturn;
+		}
 		
 	$e=new SSoap('Colo');	//your service name here as argument
 	
@@ -42,6 +60,16 @@
 					'return'=>'str'
 				),
 				'this is another test'
+	);
+	
+	
+	$e->register(
+				'getConnect',
+				array(),
+				array(
+					'return'=>'boolean'
+				),
+				'connect bdd'
 	);
 	
 	$e->handle();		//call this method to start service handle
